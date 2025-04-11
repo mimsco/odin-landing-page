@@ -27,19 +27,33 @@
 /***** CUSTOM PROPERTIES *****/
 
 :root {
-  --color-neutral--100: #fafafa;
-  --color-neutral--200: #efefef;
-  --color-neutral--800: #414141;
-  --color-neutral--900: #212121;
+  
+  /* colora */
+  --color-neutral--100: hsl(26, 90%, 98%);
+  --color-neutral--200: hsl(26, 90%, 93%);  
+  --color-neutral--800: hsl(26, 90%, 15%);
+  --color-neutral--900: hsl(26, 90%, 10%);
 
-  --color-brand--400: #f59247;
+  --color-brand--300: hsl(26, 90%, 82%);
+  --color-brand--400: hsl(26, 90%, 62%);
+  --color-brand--500: hsl(26, 90%, 40%);
 
+  /* typography */
+  --font--primary: "Satoshi", sans-serif;
+  
   --font-size--300: 0.875rem;
   --font-size--400: 1rem;
   --font-size--500: 1.25rem;
   --font-size--600: 2.5rem;
   --font-size--700: 4rem;
 
+  --font-weight--normal: 400;
+  --font-weight--bold: 700;
+
+  --font-style--normal: normal;
+  --font-style--italic: italic;
+
+  /* layout */
   --space--base: 1.5rem;
   --space--tiny: 0.5rem;
   --space--small: 1rem;
@@ -49,6 +63,9 @@
 
   --container-width: 90rem;
   --container-width--small: 80rem;
+
+  /* misc */
+  --border-radius: 0.5rem;
 }
 
 /***** GENERAL RESET *****/
@@ -61,6 +78,11 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-neutral--800);
+  background-color: var(--color-neutral--100);
 }
 
 :where(body, ul, ol, figure, blockquote, h1, h2, h3, h4, h5, h6, p) {
@@ -78,10 +100,114 @@ picture {
 ul[class],
 ol[class] {
   padding: 0;
+  list-style: none;
 }
 
 a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+}
+
+/***** TYPOGRAPHY *****/
+
+body {
+  font-family: var(--font--primary);
+  line-height: 1.5;
+}
+
+h1,
+.heading--primary,
+h2,
+.heading--secondary {
+  font-weight: var(--font-weight--bold);
+  color: var(--color-neutral--900);
+}
+
+h1,
+.heading--primary {
+  font-size: var(--font-size--700);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+h2,
+.heading--secondary {
+  font-size: var(--font-size--600);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+p,
+.text--body {
+  font-size: var(--font-size--400);
+  line-height: 1.5;
+  max-width: 33em;
+}
+
+p + p {
+  margin-block-start: var(--space--base);
+}
+
+a[class] {
+  font-weight: var(--font-weight--bold);
+  color: var(--color-neutral--900);
+}
+
+/***** LAYOUT *****/
+
+section:not(.hero-section) {
+  padding-block: var(--space--huge);
+}
+
+.container {
+  width: calc(min(100%, var(--container-width)) - var(--space--large) * 2);
+  margin-inline: auto;
+}
+
+.container--small {
+  width: calc(min(100%, var(--container-width--small)) - var(--space--large) * 2);
+}
+
+.content-flow > * + * {
+  margin-block-start: var(--flow-space, var(--space--base));
+}
+
+.content-flow > * + :is(.button) {
+  margin-block-start: var(--space--medium);
+}
+
+/***** COMPONENT BLOCKS *****/
+
+.button {
+  display: block;
+  width: fit-content;
+  padding: 1em 2em;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: none;
+  font-size: var(--font-size--400);
+  font-weight: var(--font-weight--bold);
+  line-height: 1;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.button--primary {
+  color: var(--color-neutral--100);
+  background-color: var(--color-brand--400);
+}
+
+.button--secondary {
+  color: var(--color-brand--400);
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--color-brand--400);
+}
+
+.button--primary:hover {
+  background-color: var(--color-brand--500);
+}
+
+.button--secondary:hover {
+  color: var(--color-neutral--100);
+  background-color: var(--color-brand--500);
 }
