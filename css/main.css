@@ -1,0 +1,98 @@
+/***** TYPEFACE IMPORT *****/
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Regular.woff2"), format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Bold.woff2"), format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Italic.woff2"), format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/***** CUSTOM PROPERTIES *****/
+
+:root {
+  --color-neutral--100: #fafafa;
+  --color-neutral--200: #efefef;
+  --color-neutral--800: #414141;
+  --color-neutral--900: #212121;
+
+  --color-brand--400: #f59247;
+
+  --font-size--300: 0.875rem;
+  --font-size--400: 1rem;
+  --font-size--500: 1.25rem;
+  --font-size--600: 2.5rem;
+  --font-size--700: 4rem;
+
+  --space--base: 1.5rem;
+  --space--tiny: 0.5rem;
+  --space--small: 1rem;
+  --space--medium: 2rem;
+  --space--large: 5rem;
+  --space--huge: 7.5rem;
+
+  --container-width: 90rem;
+  --container-width--small: 80rem;
+}
+
+/***** GENERAL RESET *****/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
