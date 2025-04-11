@@ -149,7 +149,7 @@ p + p {
   margin-block-start: var(--space--base);
 }
 
-a[class] {
+a {
   font-weight: var(--font-weight--bold);
   color: var(--color-neutral--900);
 }
