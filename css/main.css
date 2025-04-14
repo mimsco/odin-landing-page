@@ -28,15 +28,15 @@
 
 :root {
   
-  /* colora */
-  --color-neutral--100: hsl(26, 90%, 98%);
-  --color-neutral--200: hsl(26, 90%, 93%);  
-  --color-neutral--800: hsl(26, 90%, 15%);
-  --color-neutral--900: hsl(26, 90%, 10%);
+  /* colors */
+  --color-neutral--100: hsl(63, 100%, 98%);
+  --color-neutral--200: hsl(63, 100%, 95%);  
+  --color-neutral--800: hsl(63, 100%, 6%);
+  --color-neutral--900: hsl(63, 100%, 3%);
 
-  --color-brand--300: hsl(26, 90%, 82%);
-  --color-brand--400: hsl(26, 90%, 62%);
-  --color-brand--500: hsl(26, 90%, 40%);
+  --color-brand--300: hsl(63, 100%, 85%);
+  --color-brand--400: hsl(63, 100%, 65%);
+  --color-brand--500: hsl(59, 85%, 65%);
 
   /* typography */
   --font--primary: "Satoshi", sans-serif;
@@ -49,9 +49,6 @@
 
   --font-weight--normal: 400;
   --font-weight--bold: 700;
-
-  --font-style--normal: normal;
-  --font-style--italic: italic;
 
   /* layout */
   --space--base: 1.5rem;
@@ -128,7 +125,7 @@ h1,
 .heading--primary {
   font-size: var(--font-size--700);
   line-height: 1.1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 
 h2,
@@ -145,13 +142,13 @@ p,
   max-width: 33em;
 }
 
-p + p {
-  margin-block-start: var(--space--base);
+.text--large {
+  font-size: var(--font-size--500);
+  line-height: 1.4;
 }
 
-a {
+a[class] {
   font-weight: var(--font-weight--bold);
-  color: var(--color-neutral--900);
 }
 
 /***** LAYOUT *****/
@@ -173,7 +170,7 @@ section:not(.hero-section) {
   margin-block-start: var(--flow-space, var(--space--base));
 }
 
-.content-flow > * + :is(.button) {
+.content-flow > * + :where(.button) {
   margin-block-start: var(--space--medium);
 }
 
@@ -189,11 +186,11 @@ section:not(.hero-section) {
   font-size: var(--font-size--400);
   font-weight: var(--font-weight--bold);
   line-height: 1;
-  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
 .button--primary {
-  color: var(--color-neutral--100);
+  color: var(--color-neutral--900);
   background-color: var(--color-brand--400);
 }
 
@@ -208,6 +205,134 @@ section:not(.hero-section) {
 }
 
 .button--secondary:hover {
-  color: var(--color-neutral--100);
+  color: var(--color-neutral--900);
   background-color: var(--color-brand--500);
+}
+
+/***** SECTION STYLES *****/
+
+/* site-header */
+
+.site-header {
+  padding-block: var(--space--medium);
+  background-color: var(--color-neutral--900);
+  color: var(--color-neutral--100);
+}
+
+.site-header__layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space--medium);
+}
+
+.site-header__logo {
+  font-size: var(--font-size--500);
+}
+
+.main-nav__list {
+  display: flex;
+  gap: var(--space--medium);
+}
+
+/* hero-section */
+
+.hero-section {
+  padding-block: var(--space--huge);
+  background-color: var(--color-neutral--900);
+}
+
+.hero__layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space--large);
+}
+
+.hero__heading {
+  color: var(--color-neutral--100);
+}
+
+.hero__text {
+  color: var(--color-neutral--200);
+}
+
+.hero__image {
+  aspect-ratio: 4 / 3;
+}
+
+/* features-section */
+
+.features__heading {
+  text-align: center;
+  margin-block-end: var(--space--large);
+}
+
+.features__layout {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space--medium);
+}
+
+.card {
+  --flow-space: var(--space--small);
+}
+
+.card__image {
+  aspect-ratio: 4 / 3;
+}
+
+/* testimonials-section */
+
+.testimonials-section {
+  background-color: var(--color-neutral--200);
+}
+
+.testimonial {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.testimonial__text {
+  font-style: italic;
+}
+
+.testimonial__person {
+  text-align: right;
+  font-weight: var(--font-weight--bold);
+}
+
+/* cta-section */
+
+.cta {
+  --flow-space: var(--space--small);
+  padding: var(--space--large);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space--medium);
+  border-radius: var(--border-radius);
+  background-color: var(--color-neutral--900);
+}
+
+.cta__heading {
+  color: var(--color-neutral--100);
+}
+
+.cta__text {
+  color: var(--color-neutral--200);
+  max-width: 26em;
+}
+
+/* site-footer */
+
+.site-footer {
+  padding-block: var(--space--medium);
+  color: var(--color-neutral--100);
+  background-color: var(--color-neutral--900);
+}
+
+.site-footer__copyright {
+  max-width: unset;
+  text-align: center;
 }
