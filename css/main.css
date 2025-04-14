@@ -285,6 +285,7 @@ section:not(.hero-section) {
 /* testimonials-section */
 
 .testimonials-section {
+  padding-block: var(--space--huge);
   background-color: var(--color-neutral--200);
 }
 
